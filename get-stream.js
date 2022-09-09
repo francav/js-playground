@@ -3,17 +3,27 @@ const stream = require("getstream");
 // Instantiate new client with a user token
 const client = stream.connect(
   "qpkb2vb8bnhm",
-  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiYWdlZC13b29kLTgifQ.25pd6mSf4bm16LWfRDKE2Wk61ua7n3GIP2CMp0CS7k0",
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZGV2LXVzZXIifQ.J8NrtsxTZhg0u_8y3REhTCvjZo5ivclny1VtxfJ69so",
   "1209198"
 );
 
-const chris = client.feed("user", "chris");
-chris.addActivity({
-  actor: "SU:eric",
-  tweet: "Hello world",
-  verb: "tweet",
-  object: 1,
+// const userToken = client.createUserToken('dev-user');
+
+// console.log(userToken);
+
+client.setUser({
+  name: "dev-user",
+  occupation: "Software Engineer",
+  gender: "male",
 });
+
+// const chris = client.feed("user", "chris");
+// chris.addActivity({
+//   actor: "SU:eric",
+//   tweet: "Hello world",
+//   verb: "tweet",
+//   object: 1,
+// });
 
 // Add an Activity; message is a custom field - tip: you can add unlimited custom fields!
 // chris.addActivity({
